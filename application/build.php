@@ -30,8 +30,14 @@ return [
     ],
     'admin'     => [
         '__dir__'    => ['common', 'controller', 'model', 'view'],
-        'controller' => ['Index', 'Test', 'User'],
+        'controller' => ['Index', 'Test', 'User','Bis','Deal','Feature','Order','Public'],
         'model'      => ['User', ],
+        'view'       => ['index/index','user/index'],
+    ],
+    'business'     => [
+        '__dir__'    => ['common', 'controller', 'model', 'view'],
+        'controller' => ['Index', 'User','Deal','Public','Location','Register'],
+        'model'      => ['User'],
         'view'       => ['index/index','user/index'],
     ],
 ];

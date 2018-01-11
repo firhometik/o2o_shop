@@ -1,5 +1,5 @@
 <?php
-namespace app\admin\controller;
+namespace app\business\controller;
 use think\Controller;
 class Index extends Controller
 {
