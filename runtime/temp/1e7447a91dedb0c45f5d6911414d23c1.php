@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:69:"D:\Servers\o2o_shop\public/../application/admin\view\index\index.html";i:1515681018;s:61:"D:\Servers\o2o_shop\application\admin\view\public\header.html";i:1482856936;s:59:"D:\Servers\o2o_shop\application\admin\view\public\menu.html";i:1482856936;s:61:"D:\Servers\o2o_shop\application\admin\view\public\footer.html";i:1482856936;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:69:"D:\Servers\o2o_shop\public/../application/admin\view\index\index.html";i:1515681018;s:61:"D:\Servers\o2o_shop\application\admin\view\public\header.html";i:1482856936;s:59:"D:\Servers\o2o_shop\application\admin\view\public\menu.html";i:1515911625;s:61:"D:\Servers\o2o_shop\application\admin\view\public\footer.html";i:1515912348;}*/ ?>
 ﻿<!--包含头部文件-->
 <!DOCTYPE HTML>
 <html>
@@ -68,7 +68,7 @@
 			<dt><i class="Hui-iconfont">&#xe616;</i> 分类管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
-					<li><a _href="请添加链接" data-title="生活服务分类" href="javascript:void(0)">生活服务分类</a></li>
+					<li><a _href="<?php echo url('Category/index'); ?>" data-title="生活服务分类" href="javascript:void(0)">生活服务分类</a></li>
 				</ul>
 			</dd>
 		</dl>
@@ -159,5 +159,5 @@
 <script type="text/javascript" src="/static/admin/hui/lib/jquery.validation/1.14.0/messages_zh.min.js"></script>  
 <script type="text/javascript" src="/static/admin/hui/static/h-ui/js/H-ui.js"></script> 
 <script type="text/javascript" src="/static/admin/hui/static/h-ui.admin/js/H-ui.admin.js"></script>
-</body>
-</html>
+<script type="text/javascript" src="/static/admin/hui/static/h-ui.admin/js/common.js"></script>
+
