@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:70:"D:\Servers\o2o_shop\public/../application/admin\view\category\add.html";i:1515944689;s:61:"D:\Servers\o2o_shop\application\admin\view\public\header.html";i:1482856936;s:61:"D:\Servers\o2o_shop\application\admin\view\public\footer.html";i:1515912348;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:70:"D:\Servers\o2o_shop\public/../application/admin\view\category\add.html";i:1516109113;s:61:"D:\Servers\o2o_shop\application\admin\view\public\header.html";i:1515945027;s:61:"D:\Servers\o2o_shop\application\admin\view\public\footer.html";i:1515912348;}*/ ?>
 <!--包含头部文件-->
 <!DOCTYPE HTML>
 <html>
@@ -19,6 +19,7 @@
 <link rel="stylesheet" type="text/css" href="/static/admin/hui/static/h-ui.admin/css/H-ui.admin.css" />
 <link rel="stylesheet" type="text/css" href="/static/admin/hui/lib/Hui-iconfont/1.0.7/iconfont.css" />
 <link rel="stylesheet" type="text/css" href="/static/admin/hui/lib/icheck/icheck.css" />
+<link rel="stylesheet" type="text/css" href="/static/admin/hui/static/h-ui.admin/css/common.css" />
 <link rel="stylesheet" type="text/css" href="/static/admin/hui/static/h-ui.admin/skin/default/skin.css" id="skin" />
 <link rel="stylesheet" type="text/css" href="/static/admin/hui/static/h-ui.admin/css/style.css" />
 <!--[if IE 6]>
@@ -31,11 +32,12 @@
 </head>
 <body>
 <div class="page-container">
-	<form class="form form-horizontal form-o2o-add" id="form-o2o-add" method="post" action="<?php echo url('Category/save'); ?>">
+	<form class="form form-horizontal form-o2o-add" id="form-o2o-add" method="post" action="<?php echo url('Category/setcategory'); ?>">
+		<input type="hidden" name="id" value="<?php echo $cate['id']; ?>"></input>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>生活服务分类名称：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="" id="name" name="name">
+				<input type="text" class="input-text" value="<?php echo $cate['name']; ?>" placeholder="" id="name" name="name">
 			</div>
 		</div>
 		<div class="row cl">
@@ -45,7 +47,7 @@
 				<select name="parent_id" class="select">
 					<option value="0">一级栏目</option>
 					<?php if(is_array($category) || $category instanceof \think\Collection || $category instanceof \think\Paginator): $i = 0; $__LIST__ = $category;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$rs): $mod = ($i % 2 );++$i;?>
-					<option value="<?php echo $rs['id']; ?>"><?php echo $rs['name']; ?></option>
+					<option value="<?php echo $rs['id']; ?>" <?php if($rs['id'] == $cate['parent_id']): ?>selected<?php endif; ?> >--<?php echo $rs['name']; ?></option>
 					<?php endforeach; endif; else: echo "" ;endif; ?>
 					
 				</select>

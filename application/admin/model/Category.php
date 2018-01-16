@@ -18,9 +18,10 @@ class Category extends Model
 			'parent_id' => $parentId ,
 		];
 		$order = [
+			'listorder' => 'desc',
 			'id' => 'desc',
 		];
-		return $this -> where($data) -> order($order) -> paginate(1);
+		return $this -> where($data) -> order($order) -> paginate();
 	}
 	public function getcategory(){
 		$data = [

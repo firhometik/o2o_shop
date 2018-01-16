@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:69:"D:\Servers\o2o_shop\public/../application/admin\view\index\index.html";i:1515681018;s:61:"D:\Servers\o2o_shop\application\admin\view\public\header.html";i:1482856936;s:59:"D:\Servers\o2o_shop\application\admin\view\public\menu.html";i:1515911625;s:61:"D:\Servers\o2o_shop\application\admin\view\public\footer.html";i:1515912348;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:69:"D:\Servers\o2o_shop\public/../application/admin\view\index\index.html";i:1515681018;s:61:"D:\Servers\o2o_shop\application\admin\view\public\header.html";i:1515945027;s:59:"D:\Servers\o2o_shop\application\admin\view\public\menu.html";i:1515911625;s:61:"D:\Servers\o2o_shop\application\admin\view\public\footer.html";i:1516118521;}*/ ?>
 ﻿<!--包含头部文件-->
 <!DOCTYPE HTML>
 <html>
@@ -19,6 +19,7 @@
 <link rel="stylesheet" type="text/css" href="/static/admin/hui/static/h-ui.admin/css/H-ui.admin.css" />
 <link rel="stylesheet" type="text/css" href="/static/admin/hui/lib/Hui-iconfont/1.0.7/iconfont.css" />
 <link rel="stylesheet" type="text/css" href="/static/admin/hui/lib/icheck/icheck.css" />
+<link rel="stylesheet" type="text/css" href="/static/admin/hui/static/h-ui.admin/css/common.css" />
 <link rel="stylesheet" type="text/css" href="/static/admin/hui/static/h-ui.admin/skin/default/skin.css" id="skin" />
 <link rel="stylesheet" type="text/css" href="/static/admin/hui/static/h-ui.admin/css/style.css" />
 <!--[if IE 6]>

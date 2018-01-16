@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:72:"D:\Servers\o2o_shop\public/../application/admin\view\category\index.html";i:1515945176;s:61:"D:\Servers\o2o_shop\application\admin\view\public\header.html";i:1515945027;s:61:"D:\Servers\o2o_shop\application\admin\view\public\footer.html";i:1515912348;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:72:"D:\Servers\o2o_shop\public/../application/admin\view\category\index.html";i:1516120652;s:61:"D:\Servers\o2o_shop\application\admin\view\public\header.html";i:1515945027;s:61:"D:\Servers\o2o_shop\application\admin\view\public\footer.html";i:1516118521;}*/ ?>
 <!--包含头部文件-->
 <!DOCTYPE HTML>
 <html>
@@ -54,10 +54,10 @@
 					<td><input name="" type="checkbox" value=""></td>
 					<td><?php echo $rs['id']; ?></td>
 					<td><?php echo $rs['name']; ?></td>
-					<td class="text-c"><?php echo $rs['listorder']; ?></td>
+					<td class="text-c listorder"><input size="3" attr-id="<?php echo $rs['id']; ?>" name="listorder" value="<?php echo $rs['listorder']; ?>"></input></td>
 					<td><?php echo $rs['create_time']; ?></td>
-					<td class="td-status"><a href="" title="点击修改状态"><?php echo status($rs['status']); ?></a></td>
-					<td class="td-manage"><a href="<?php echo url('category/index',['parent_id'=>$rs['id']]); ?>">获取子栏目</a><a style="text-decoration:none" class="ml-5" onClick="o2o_s_edit('编辑','','',300)" href="javascript:;" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class="ml-5" onClick="o2o_del('','')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+					<td class="td-status"><a href="<?php echo url('category/status',['id'=>$rs['id'],'status'=>1]); ?>" title="点击修改状态"><?php echo status($rs['status']); ?></a></td>
+					<td class="td-manage"><a href="<?php echo url('category/index',['parent_id'=>$rs['id']]); ?>">获取子栏目</a><a style="text-decoration:none" class="ml-5" onClick="o2o_s_edit('编辑','<?php echo url("Category/add",['id'=>$rs['id']]); ?>','',300)" href="javascript:;" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class="ml-5" onClick="o2o_del('<?php echo url("Category/delcategory",['id'=>$rs['id']]); ?>','')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
 				</tr>
 				<?php endforeach; endif; else: echo "" ;endif; ?>
 			</tbody>
@@ -77,28 +77,38 @@
 <script type="text/javascript" src="/static/admin/hui/static/h-ui.admin/js/common.js"></script>
 
 <script>
-/*页面 全屏-添加*/
-function o2o_edit(title,url){
-	var index = layer.open({
-		type: 2,
-		title: title,
-		content: url
-	});
-	layer.full(index);
-}
-
-/*添加或者编辑缩小的屏幕*/
-function o2o_s_edit(title,url,w,h){
-	layer_show(title,url,w,h);
-}
-/*-删除*/
-function o2o_del(id,url){
+ var SCOPE = {
+ 	'listorder_url':"<?php echo url('category/listorder'); ?>",
+ };
+$('.listorder input').blur(function(){
+	var id = $(this).attr('attr-id');
+	var listorder = $(this).val();
+	var postdata = {
+		'id':id,
+		'listorder':listorder
+	}
+	var url = SCOPE.listorder_url;
+	$.post(url,postdata,function(e){
+		if (e.code ==1) {
+			window.location.href = e.data;
+		}else{
+			alert(e.msg)
+		}
+	},'json');
+});
+function o2o_del(url){
 	
-	layer.confirm('确认要删除吗？',function(index){
-		window.location.href=url;
+	layer.confirm('确认要删除吗？',function(){
+		$.get(url,function(e){
+			if (e.code == 1) {
+				alert('删除成功');
+				window.location.href = e.data;
+			}else{
+				alert(e.msg)
+			}
+		})
 	});
 }
-
 </script>
 </body>
 </html>

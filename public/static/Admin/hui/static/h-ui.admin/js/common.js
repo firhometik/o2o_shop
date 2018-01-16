@@ -13,9 +13,32 @@ function o2o_s_edit(title,url,w,h){
 	layer_show(title,url,w,h);
 }
 /*-删除*/
-function o2o_del(id,url){
+function o2o_del(url){
 	
-	layer.confirm('确认要删除吗？',function(index){
-		window.location.href=url;
+	layer.confirm('确认要删除吗？',function(){
+		$.get(url,function(e){
+			if (e.code == 1) {
+				alert('删除成功');
+			}else{
+				alert('删除失败');
+			}
+		})
 	});
 }
+
+$('.listorder input').onchange(function(){
+	var id = $($this).attr('attr-id');
+	var listorder = $(this).val();
+	var postdata = {
+		'id':id,
+		'listorder':listorder
+	}
+	var url = SCOPE.listorder_url;
+	$.post(url,postdata,function(e){
+		if (e.code ==1) {
+			window.location.href = e.data;
+		}else{
+			alert(e.msg)
+		}
+	},'json');
+})
