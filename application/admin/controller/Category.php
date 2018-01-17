@@ -51,10 +51,25 @@ class Category extends Controller
 		}
 	}
 	public function status(){
-
+		$id = input('get.id');
+		$status = $this -> model -> where(['id'=>$id]) -> value('status');
+		if ($status == 1) {
+			$re = $this -> model -> save(['status'=>0],['id'=>$id]);	
+		}else{
+			$re = $this -> model -> save(['status'=>1],['id'=>$id]);
+		}
+		if ($re) {
+			$this -> redirect($_SERVER['HTTP_REFERER'],1,'success');
+		}else{
+			$this -> redirect($_SERVER['HTTP_REFERER'],0,'更新失败');
+		}
 	}
 	public function delcategory(){
 		$id = input('get.id');
+		$list = $this -> model ->where(['parent_id'=>$id]) -> find();
+		if ($list) {
+			$this -> error('请先删除下级栏目');
+		}
 		$re = $this -> model ->where(['id'=>$id]) ->delete();
 		if ($re) {
 			$this -> result($_SERVER['HTTP_REFERER'],1,'success');

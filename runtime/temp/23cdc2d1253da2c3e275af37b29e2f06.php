@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:70:"D:\Servers\o2o_shop\public/../application/admin\view\category\add.html";i:1516109113;s:61:"D:\Servers\o2o_shop\application\admin\view\public\header.html";i:1515945027;s:61:"D:\Servers\o2o_shop\application\admin\view\public\footer.html";i:1515912348;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:70:"D:\Servers\o2o_shop\public/../application/admin\view\category\add.html";i:1516109113;s:61:"D:\Servers\o2o_shop\application\admin\view\public\header.html";i:1515945027;s:61:"D:\Servers\o2o_shop\application\admin\view\public\footer.html";i:1516118521;}*/ ?>
 <!--包含头部文件-->
 <!DOCTYPE HTML>
 <html>

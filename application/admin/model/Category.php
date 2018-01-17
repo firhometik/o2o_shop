@@ -14,7 +14,7 @@ class Category extends Model
 
 	public function getparent($parentId = 0){
 		$data = [
-			'status' => 1,
+			'status' => ['neq',-1],
 			'parent_id' => $parentId ,
 		];
 		$order = [

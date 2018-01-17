@@ -5,6 +5,7 @@
 <div class="page-container">
 	
 	<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"> <a class="btn btn-primary radius" onclick="o2o_s_edit('添加生活服务分类','{:url("Category/add")}','','300')" href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 添加分类</a></span> <span class="r"></span> </div>
+	<img style="margin:20px" width="400" height="300" src="{:url('index/test')}"/>
 	<div class="mt-20">
 		<table class="table table-border table-bordered table-bg table-hover table-sort">
 			<thead>
@@ -41,35 +42,7 @@
  var SCOPE = {
  	'listorder_url':"{:url('category/listorder')}",
  };
-$('.listorder input').blur(function(){
-	var id = $(this).attr('attr-id');
-	var listorder = $(this).val();
-	var postdata = {
-		'id':id,
-		'listorder':listorder
-	}
-	var url = SCOPE.listorder_url;
-	$.post(url,postdata,function(e){
-		if (e.code ==1) {
-			window.location.href = e.data;
-		}else{
-			alert(e.msg)
-		}
-	},'json');
-});
-function o2o_del(url){
-	
-	layer.confirm('确认要删除吗？',function(){
-		$.get(url,function(e){
-			if (e.code == 1) {
-				alert('删除成功');
-				window.location.href = e.data;
-			}else{
-				alert(e.msg)
-			}
-		})
-	});
-}
+
 </script>
 </body>
 </html>

@@ -19,15 +19,16 @@ function o2o_del(url){
 		$.get(url,function(e){
 			if (e.code == 1) {
 				alert('删除成功');
+				window.location.href = e.data;
 			}else{
-				alert('删除失败');
+				alert(e.msg)
 			}
 		})
 	});
 }
 
-$('.listorder input').onchange(function(){
-	var id = $($this).attr('attr-id');
+$('.listorder input').blur(function(){
+	var id = $(this).attr('attr-id');
 	var listorder = $(this).val();
 	var postdata = {
 		'id':id,
@@ -41,4 +42,4 @@ $('.listorder input').onchange(function(){
 			alert(e.msg)
 		}
 	},'json');
-})
+});

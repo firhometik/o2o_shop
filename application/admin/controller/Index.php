@@ -10,4 +10,7 @@ class Index extends Controller
     public function welcome(){
     	return $this -> fetch();
     }
+    public function test(){
+    	return \Map::staticimage('浙江省嘉兴市智慧产业园');
+    }
 }
