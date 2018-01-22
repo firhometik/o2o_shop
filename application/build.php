@@ -36,8 +36,13 @@ return [
     ],
     'business'     => [
         '__dir__'    => ['common', 'controller', 'model', 'view'],
-        'controller' => ['Index', 'User','Deal','Public','Location','Register'],
+        'controller' => ['Index', 'User','Register','Login'],
         'model'      => ['User'],
-        'view'       => ['index/index','user/index'],
+        'view'       => ['index/index','user/index',''],
+    ],
+    'common'     => [
+        '__dir__'    => ['controller', 'model'],
+        'controller' => ['Index', 'User','Register','Login'],
+        'model'      => ['City','Category','Admin'],
     ],
 ];
